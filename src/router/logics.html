@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/element-ui/lib/theme-chalk/index.css"
+    />
+    <!-- 引入组件库 -->
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+      .title {
+        border: 1px solid #e8e8e8;
+        width: 4%;
+        text-align: center;
+      }
+      .first {
+        display: flex;
+        align-items: center;
+        margin-top: -30px;
+        margin-left: 10px;
+      }
+      .first span {
+        margin-left: 20px;
+      }
+      .wrapper {
+        width: 19%;
+        border: 1px solid #e8e8e8;
+      }
+      .showDataList {
+        width: 4%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div
+        class="title"
+        @mouseenter="enter"
+        @mouseleave="leave"
+        class="showDataList"
+        ref='getDom'
+      >
+        查看物流
+    </div>
+      <div class="wrapper" v-if='showData' >
+        <h2>您的包裹已经备签收</h2>
+        <div class="block">
+          <el-timeline :reverse="reverse">
+            <el-timeline-item
+              v-for="(activity, index) in activities"
+              :key="index"
+            >
+              {{ activity.timestamp }}&nbsp;&nbsp;&nbsp;&nbsp;
+              {{ activity.week }}&nbsp;&nbsp;&nbsp;&nbsp;
+              {{ activity.time }}&nbsp;&nbsp;&nbsp;&nbsp; {{ activity.status }}
+            </el-timeline-item>
+          </el-timeline>
+          <div class="footer">
+            <div class="first">
+              <h4>运单号码</h4>
+              <span>3100673116101</span>
+            </div>
+            <div class="first">
+              <h4>物流公司</h4>
+              <span>韵达快递</span>
+            </div>
+            <div class="first">
+              <h4>客服电话</h4>
+              <span>95546</span>
+            </div>
+            <div class="first">
+              <h4>商家名称</h4>
+              <span>卡西诺旗舰店</span>
+            </div>
+            <div class="first">
+              <h4>发货地址</h4>
+              <span>卡西诺旗舰店</span>
+            </div>
+            <div class="first">
+              <h4>发货地址</h4>
+              <span>上海市黄浦区</span>
+            </div>
+            <div class="first">
+              <h4>收货地址</h4>
+              <span>上海市黄浦区</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <!-- import JavaScript -->
+  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+  <script>
+    new Vue({
+      el: "#app",
+      data: function() {
+        return {
+          reverse: true,
+          showData: false,
+          activities: [
+            {
+              content: "活动按期开始",
+              timestamp: "2018-04-15",
+              week: "周三",
+              time: "11:11:11",
+              status: "开始处理"
+            },
+            {
+              content: "通过审核",
+              timestamp: "2018-04-13",
+              week: "周三",
+              time: "11:11:11",
+              status: "正在发货"
+            },
+            {
+              content: "创建成功",
+              timestamp: "2018-04-11",
+              week: "周三",
+              time: "11:11:11",
+              status: "已经出库"
+            }
+          ]
+        };
+      },
+      methods: {
+        enter() {
+          this.showData = true;
+          console.log(this.$refs.getDom.style);
+          this.$nextTick(el=>{
+            this.$refs.getDom.style.borderBottom='none'
+          })
+        //   this.$refs.getDom.style.borderBottom=none
+        },
+        leave() {
+          this.showData = false;
+          this.$nextTick(el=>{
+            this.$refs.getDom.style.borderBottom='1px solid #e8e8e8'
+          })
+        }
+      }
+    });
+  </script>
+</html>
