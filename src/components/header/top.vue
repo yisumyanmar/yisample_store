@@ -27,9 +27,12 @@
                     <P><img src="../../assets//Clear.png"/></P>
                     <p>清缓存</p>
                 </span>
-                <span @click="loginFun">
+                <!-- <span @click="loginFun">
                     <P><img src="../../assets//Head-portrait.png"/></P>
                     <p>切换帐号</p>
+                </span> -->
+                <span @click="loginFun">
+                    <P><img style="width: 50px; height: 50px;" src="../../assets//Head-portrait.png"/></P>
                 </span>
             </div>
         </div>

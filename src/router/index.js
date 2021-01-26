@@ -4,8 +4,16 @@ import Router from 'vue-router'
 const subject = r => require(['@/components/subject'], r); //入口
 const login = r => require(['@/components/logoIn/logoIn'], r); //登录
 const home = r => require(['@/components/home/home'], r); //商户中心入口
+
+const inquiryInner = r => require(['@/components/home/inquiryInner'], r);
+
 const index = r => require(['@/components/home/index/index'], r); //商户中心
 const goods = r => require(['@/components/home/goods/goods'], r); //商户中心-商品
+
+const quotationStore = r => require(['@/components/home/goods/quotationStore'], r);
+
+const quotationDetails = r => require(['@/components/home/goods/quotationDetails'], r); //商户中心-商品
+
 const askQuestion = r => require(['@/components/home/goods/children/askQuestion'], r); //商户中心-咨询问答
 const goodsManage = r => require(['@/components/home/goods/children/goodsManage'], r); //商户中心-商品管理
 const draftBox = r => require(['@/components/home/goods/children/draftBox'], r);
@@ -21,6 +29,17 @@ const Picturelist = r => require(['@/components/home/goods/children/Picturelist'
 const goodsType = r => require(['@/components/home/goods/children/goodsType'], r); //商户中心-商品类型
 const addGoodsType = r => require(['@/components/home/goods/children/addGoodsType'], r); //商户中心-添加商品类型
 const goodsSpec = r => require(['@/components/home/goods/children/goodsSpec'], r); //商户中心-商品规格
+
+const inquiryPurchase = r => require(['@/components/home/goods/children/inquiryPurchase'], r);
+
+const quoManage = r => require(['@/components/home/goods/children/quoManage'], r);
+
+const releaseProduct = r => require(['@/components/home/goods/children/releaseProduct'], r);
+
+const customizeOrder = r => require(['@/components/home/goods/children/customizeOrder'], r);
+
+const customizeStore = r => require(['@/components/home/goods/children/customizeStore'], r);
+
 const storeClass = r => require(['@/components/home/goods/children/storeClass'], r); //商户中心-店内分类
 const storeNotice = r => require(['@/components/home/goods/children/storeNotice'], r); //商户中心-违规举报
 const storeNoticeItem = r => require(['@/components/home/goods/children/child/storeNoticeItem'], r); //商户中心-违规举报列表详情

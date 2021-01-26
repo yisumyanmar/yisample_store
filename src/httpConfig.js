@@ -1,5 +1,6 @@
 
-const request = 'http://api.shopsn.cn/agent/adminstore.php/';
+// const request = 'http://api.shopsn.cn/agent/adminstore.php/';
+const request = 'http://api.gtpacking.cn/custom-merchant/adminstore.php/';
 // const request = 'http://192.168.1.146/agent/adminstore.php/';
 
 const imgRequest = "http://center.shopsn.cn/";
